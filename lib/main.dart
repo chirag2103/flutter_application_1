@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/splash_screen.dart';
+import 'package:flutter_application_1/utils/firebase_config.dart';
 import 'screens/home_screen.dart';
 import 'theme/app_theme.dart';
 import 'screens/planning_screen.dart';
@@ -12,7 +13,9 @@ import 'screens/payment_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/notification_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await FirebaseConfig.initializeFirebase();
   runApp(const ConstructionApp());
 }
 

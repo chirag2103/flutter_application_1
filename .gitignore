@@ -97,3 +97,5 @@ pids/
 .firebase/
 firebase-debug.log
 firebase-service-account.json
+config.env
+*.env

@@ -1,13 +1,20 @@
 import express from 'express';
-const router = express.Router();
-import * as dealerRateController from '../controllers/dealerRateController.js';
 import auth from '../middleware/auth.js';
+import {
+  addDealerRate,
+  getDealerRates,
+  updateDealerRate,
+  deleteDealerRate,
+  getNearbyDealerRates,
+} from '../controllers/dealerRateController.js';
+
+const router = express.Router();
 
 // Protected routes for dealer rate management
-router.post('/', auth, dealerRateController.createDealerRate);
-router.put('/:id', auth, dealerRateController.updateDealerRate);
-router.delete('/:id', auth, dealerRateController.deleteDealerRate);
-router.get('/', auth, dealerRateController.getDealerRates);
-router.get('/:id', auth, dealerRateController.getDealerRateById);
+router.post('/', auth, addDealerRate);
+router.get('/', getDealerRates);
+router.get('/nearby', getNearbyDealerRates);
+router.put('/:id', auth, updateDealerRate);
+router.delete('/:id', auth, deleteDealerRate);
 
 export default router;
